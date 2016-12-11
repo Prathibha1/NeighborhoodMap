@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> Neighbouhood Map Project</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="lib/jquery-3.1.1.min.js"></script>
+    <script src="lib/knockout-3.2.0.js"></script>
+
+</head>
+
+<body>
+    <main id="row">
+        <a id="menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z" />
+            </svg>
+        </a>
+        <div>
+            <h1> National Parks in India</h1>
+        </div>
+    </main>
+    <div id="container">
+        <div id="map"></div>
+
+        <nav id="navigation">
+            <div class="search-bar-container">
+                <input type="text" value="" id="search_bar" class="search_bar" data-bind="textInput: search" placeholder="Search">
+            </div>
+            <ul class="location_list" data-bind="foreach:listedlocations">
+                <li class="items" data-bind="text:title,click:$parent.openInfo,visible:visibility"></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="map-error"></div>
+    <script src="lib/app.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0uqGh77Eil7JYoXCcXLy-DMmRBFi8GOI&v=3&callback=initMap" async defer onerror="mapError()">
+    </script>
+
+</body>
+
+</html>
